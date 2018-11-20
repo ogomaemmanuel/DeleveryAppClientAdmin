@@ -119,7 +119,7 @@ export default {
                         },
                         {
                             "text": "Permission",
-                            "path": "/"
+                            "path": "/permission_list"
                         }
                     ]
                 },

@@ -72,6 +72,11 @@ export default new Router({
           name: 'user-create',
           component: require("@/components/Users/UserCreate").default,
         },
+        {
+          path: '/permission_list',
+          name: 'permission_list',
+          component: require("@/components/Users/Permissions/PermissionList").default,
+        },
       ]
     },
    
