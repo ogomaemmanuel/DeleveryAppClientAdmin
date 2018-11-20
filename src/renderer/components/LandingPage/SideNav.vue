@@ -209,30 +209,33 @@ export default {
     margin-top: 0px;
     margin-left: 0px;
     padding: 0px;
-    background-color: #161616;
+    // background-color: #161616;
     color: #ffffff;
     transition: all 2s;
     transition-timing-function: ease-in-out;
-    // transition: height 0s;
-    overflow-y: scroll;
+   
 .side-menu-content{
+    overflow-y: scroll;
+    background-color: #161616;
+    height: 100%;
     position: relative;
     .nav {
+        position: relative;
         overflow: hidden;
         flex-wrap: nowrap;
         flex-direction: column;
         padding-top: 30px;
         padding-bottom: 60px;
         padding-left: 0px;
-    }
-
-    .side-menu-hide {
+        .side-menu-hide {
         position: absolute;
         bottom: 2%;
         display: flex;
         width: 100%;
         justify-content: flex-end;
     }
+    }
+    
 }
 }
 </style>
