@@ -67,6 +67,11 @@ export default new Router({
           name: 'user-list',
           component: require("@/components/Users/UserList").default,
         },
+        {
+          path: '/user-create',
+          name: 'user-create',
+          component: require("@/components/Users/UserCreate").default,
+        },
       ]
     },
    
@@ -74,5 +79,13 @@ export default new Router({
       path: '*',
       redirect: '/'
     }
-  ]
+  ],
+  mode:"history",
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })

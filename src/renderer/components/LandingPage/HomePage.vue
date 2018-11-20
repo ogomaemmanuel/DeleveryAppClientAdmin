@@ -6,7 +6,9 @@
     <div class="delivery-app-body" :style="homeWidth">
         <slot name="top-nav-bar"></slot>
         <div class="delivery-app-body-content">
+            <transition name="slide">
             <router-view></router-view>
+            </transition>
         </div>
     </div>
 </div>

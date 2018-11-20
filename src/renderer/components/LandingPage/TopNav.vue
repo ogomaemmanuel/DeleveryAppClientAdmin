@@ -6,7 +6,6 @@
 
         <b-navbar-nav>
             <b-nav-item @click.prevent="showSideNav()" href="#"> Toggle Side menu</b-nav-item>
-            <b-nav-item href="#" disabled>Disabled</b-nav-item>
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
             <b-nav-form>

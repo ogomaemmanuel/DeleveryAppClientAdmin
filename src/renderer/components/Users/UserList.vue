@@ -3,7 +3,7 @@
     <div>
         <h2>Search for users</h2>
     </div>
-    <button class="add-item add-user">Add User</button>
+    <button @click="getToCreate" class="add-item add-user">Add User</button>
     <table>
         <thead>
             <tr>
@@ -34,6 +34,11 @@ export default {
         return {
 
         }
+    },
+    methods: {
+        getToCreate() {
+            this.$router.push("user-create");
+        }
     }
 }
 </script>
@@ -47,16 +52,18 @@ export default {
         margin-top: 40px;
         font-weight: 300;
     }
+
     .add-user {
         margin-top: 40px;
         background-color: rgb(255, 255, 255);
         border-radius: 5px;
         padding: 6px 12px;
-        border-width:thin;
-        margin-bottom:20px;
-        &:hover{
-          background-color: #eff8fe;
-          color:rgb(149,149,149)
+        border-width: thin;
+        margin-bottom: 20px;
+
+        &:hover {
+            background-color: #eff8fe;
+            color: rgb(149, 149, 149)
         }
     }
 
