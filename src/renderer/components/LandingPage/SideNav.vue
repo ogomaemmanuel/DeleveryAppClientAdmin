@@ -1,5 +1,8 @@
 <template>
 <div class="side-menu" :style="sideMenuWith">
+    <div class="side-menu-content">
+
+    
     <user-profile> </user-profile>
     <div class="nav">
         <menu-item v-for="(menuItem, index) in menus" :nav="menuItem" :key="index">
@@ -8,6 +11,7 @@
             <slot name="side-menu-hider"></slot>
             <i @click="hideSideNav()" class="el-icon-arrow-left menu-arrow"></i>
         </div>
+    </div>
     </div>
 </div>
 </template>
@@ -201,7 +205,7 @@ export default {
     position: fixed;
     width: 255px;
     z-index: 30000;
-    min-height: 100%;
+    height: 100%;
     margin-top: 0px;
     margin-left: 0px;
     padding: 0px;
@@ -211,7 +215,8 @@ export default {
     transition-timing-function: ease-in-out;
     // transition: height 0s;
     overflow-y: scroll;
-
+.side-menu-content{
+    position: relative;
     .nav {
         overflow: hidden;
         flex-wrap: nowrap;
@@ -219,7 +224,6 @@ export default {
         padding-top: 30px;
         padding-bottom: 60px;
         padding-left: 0px;
-
     }
 
     .side-menu-hide {
@@ -229,6 +233,6 @@ export default {
         width: 100%;
         justify-content: flex-end;
     }
-
+}
 }
 </style>
