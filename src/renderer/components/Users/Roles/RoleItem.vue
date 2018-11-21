@@ -5,7 +5,6 @@
     <td><a href=""><i class="fa fa-trash"></i></a></td>
 </tr>
 </template>
-
 <script>
 export default {
     props: ["role"],
