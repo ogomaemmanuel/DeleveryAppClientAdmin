@@ -31,7 +31,7 @@ export default {
     min-height: 1rem;
     border: 1px solid #ccc;
     margin-bottom: 2px;
-    align-content: space-between;
+    align-content: space-around;
     align-items: center;
     padding: 0px 4px;
 

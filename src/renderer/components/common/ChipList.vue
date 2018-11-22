@@ -1,23 +1,24 @@
 <template>
 <div v-click-outside="hideSelector" class="chip-container">
-    <div  @click.self="showSector=true" class="chip-input">
+    <div   @click="showSector=true" class="chip-input">
         <chip @chipRemoved="removeChip" v-for="selectedChip in selectedChips" :chip="selectedChip" :key="selectedChip.id"></chip>
     </div>
-    <div v-if="showSector" class="chip-selector">
+    <div  v-if="showSector" class="chip-selector">
         <ul>
-            <li class="chip-option" @click.prevent="setSelectedChip(chipDt)" v-for="chipDt in chipData" :key="chipDt.id">{{chipDt.text}}</li>
+            <li class="chip-option" @click="setSelectedChip(chipDt)" v-for="chipDt in selectList" :key="chipDt.id">
+            <div>{{chipDt.text}}</div>
+            </li>
         </ul>
     </div>
 </div>
 </template>
-
 <script>
 import Chip from './Chip'
 export default {
     components: {
         "chip": Chip
     },
-    props: ["chipData"],
+    props: ["selectList"],
     data() {
         return {
             selectedChips: [],
@@ -26,7 +27,8 @@ export default {
     },
     methods: {
         setSelectedChip(chip) {
-            if (!this.selectedChips.find(selectedChip => selectedChip.id === chip.id)) {
+            console.log(chip)
+            if (!this.selectedChips.find(selectedChip => selectedChip.id == chip.id)) {
                 this.selectedChips.push(chip)
             }
         },
@@ -88,7 +90,7 @@ export default {
         border-radius: 5px;
         border-width: thin;
         border-style: solid;
-        border-color: black;
+        border-color: #d4d9de;
         background-color: white;
         display: flex;
         flex-wrap: wrap;
@@ -105,28 +107,24 @@ export default {
     }
 
     .chip-selector {
-        // display: none;
         border-radius: 5px;
-        // bottom: 2px;
+        max-height: 254px;
+        overflow-y: scroll;
         z-index: 1;
-        border-top: thin;
-        // border-top-color: black;
-        border-top-style: solid;
+        // border-top: thin;
+        // border-top-style: solid;
         position: absolute;
         background-color: white;
         color: black;
         width: 100%;
         box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.2);
-
         ul {
             list-style-type: none;
             padding: 0%;
             display: block;
-
             li {
                 display: block;
                 padding: 5px;
-
                 &:hover {
                     background-color: blue;
                     color: white;

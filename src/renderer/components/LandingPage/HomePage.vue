@@ -9,7 +9,6 @@
             <transition name="slide">
                 <router-view></router-view>
             </transition>
-            <chip-input :chipData="chipData"></chip-input>
         </div>
     </div>
 </div>
@@ -31,27 +30,27 @@ export default {
             homeWidth: {
                 "margin-left": "255px",
             },
-            chipData: [{
-                    "id": "1",
-                    "text": "test"
-                },
-                {
-                    "id": "2",
-                    "text": "test two"
-                },
-                {
-                    "id": "3",
-                    "text": "test three"
-                },
-                {
-                    "id": "4",
-                    "text": "test Four"
-                },
-                {
-                    "id": "5",
-                    "text": "test Five"
-                },
-            ]
+            // chipData: [{
+            //         "id": "1",
+            //         "text": "test"
+            //     },
+            //     {
+            //         "id": "2",
+            //         "text": "test two"
+            //     },
+            //     {
+            //         "id": "3",
+            //         "text": "test three"
+            //     },
+            //     {
+            //         "id": "4",
+            //         "text": "test Four"
+            //     },
+            //     {
+            //         "id": "5",
+            //         "text": "test Five"
+            //     },
+            // ]
 
         };
 

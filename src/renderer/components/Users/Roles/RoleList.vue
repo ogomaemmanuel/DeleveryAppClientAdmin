@@ -1,5 +1,8 @@
 <template>
 <div class="role-list">
+    <h2>Roles</h2>
+    <role-create></role-create>
+    
     <table>
         <thead>
             <tr>
@@ -16,10 +19,12 @@
 </div>
 </template>
 <script>
+import RoleCreate from "./RoleCreate"
 import RoleItem from "./RoleItem"
 export default {
     components: {
-        "role_item": RoleItem
+        "role_item": RoleItem,
+        "role-create":RoleCreate
     },
     data() {
         return {
@@ -56,6 +61,10 @@ export default {
 @import '../../../assets/sass/_mixins.scss';
 
 .role-list {
+    .role-create{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
     table {
         @include tableFormat;
     }
