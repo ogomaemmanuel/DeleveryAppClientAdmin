@@ -77,6 +77,11 @@ export default new Router({
           name: 'permission_list',
           component: require("@/components/Users/Permissions/PermissionList").default,
         },
+        {
+          path: '/role_list',
+          name: 'role_list',
+          component: require("@/components/Users/Roles/RoleList").default,
+        },
       ]
     },
    

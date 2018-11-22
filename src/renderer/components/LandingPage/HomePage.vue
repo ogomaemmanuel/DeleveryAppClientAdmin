@@ -9,26 +9,54 @@
             <transition name="slide">
             <router-view></router-view>
             </transition>
+<chip-input :chipData="chipData"></chip-input>
         </div>
     </div>
 </div>
 </template>
-
 <script>
 import {
     EventBus
 } from '../../event-bus.js'
 import ProductList from "../Products/ProductList"
+import ChipInput  from "../common/ChipList"
 export default {
     components: {
-        "product-list": ProductList
+        "product-list": ProductList,
+        "chip-input":ChipInput
     },
     data() {
         return {
             homeWidth: {
                 "margin-left": "255px",
-            }
+            },
+            chipData:[
+                {
+                "id":"1",
+                "text":"test"
+            },
+                {
+                "id":"2",
+                "text":"test two"
+            },
+                {
+                "id":"3",
+                "text":"test three"
+            },
+                {
+                "id":"4",
+                "text":"test Four"
+            },
+                {
+                "id":"5",
+                "text":"test Five"
+            },
+            ]
+            
+
+        
         };
+        
     },
     created() {
         let vm = this;
