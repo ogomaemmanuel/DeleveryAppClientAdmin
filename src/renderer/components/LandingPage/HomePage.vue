@@ -7,64 +7,62 @@
         <slot name="top-nav-bar"></slot>
         <div class="delivery-app-body-content">
             <transition name="slide">
-            <router-view></router-view>
+                <router-view></router-view>
             </transition>
-<chip-input :chipData="chipData"></chip-input>
+            <chip-input :chipData="chipData"></chip-input>
         </div>
     </div>
 </div>
 </template>
+
 <script>
 import {
     EventBus
 } from '../../event-bus.js'
 import ProductList from "../Products/ProductList"
-import ChipInput  from "../common/ChipList"
+import ChipInput from "../common/ChipList"
 export default {
     components: {
         "product-list": ProductList,
-        "chip-input":ChipInput
+        "chip-input": ChipInput
     },
     data() {
         return {
             homeWidth: {
                 "margin-left": "255px",
             },
-            chipData:[
+            chipData: [{
+                    "id": "1",
+                    "text": "test"
+                },
                 {
-                "id":"1",
-                "text":"test"
-            },
+                    "id": "2",
+                    "text": "test two"
+                },
                 {
-                "id":"2",
-                "text":"test two"
-            },
+                    "id": "3",
+                    "text": "test three"
+                },
                 {
-                "id":"3",
-                "text":"test three"
-            },
+                    "id": "4",
+                    "text": "test Four"
+                },
                 {
-                "id":"4",
-                "text":"test Four"
-            },
-                {
-                "id":"5",
-                "text":"test Five"
-            },
+                    "id": "5",
+                    "text": "test Five"
+                },
             ]
-            
 
-        
         };
-        
+
     },
     created() {
         let vm = this;
         EventBus.$on('sideNavClosed', function () {
             vm.homeWidth["margin-left"] = "0px";
         });
-        EventBus.$on("showSideNav", function(){
-           vm.homeWidth["margin-left"] = "255px";
+        EventBus.$on("showSideNav", function () {
+            vm.homeWidth["margin-left"] = "255px";
         })
     }
 };
@@ -74,10 +72,11 @@ export default {
 .home-page-wrapper {
     .delivery-app-body {
         margin-left: 255px;
-         transition: all 2s;
-         background-color: #f3f3f3;
-         min-height: 100%;
-         transition-timing-function: ease-in-out;
+        transition: all 2s;
+        background-color: #f3f3f3;
+        min-height: 100%;
+        transition-timing-function: ease-in-out;
+
         .delivery-app-body-content {
             min-height: 100vh;
             margin-top: 36px;
