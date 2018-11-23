@@ -37,7 +37,6 @@ export default {
     .pagination-view-count{
         align-self: center;
     }
-
     .per-page-section {
         select {
                 min-height: 38px;

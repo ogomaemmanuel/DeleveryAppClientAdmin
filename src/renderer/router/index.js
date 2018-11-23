@@ -91,6 +91,11 @@ export default new Router({
           name: 'country_list',
           component: require("@/components/SetUp/CountriesStatesZones/CountryList").default,
         },
+        {
+          path: '/state-list',
+          name: 'state-list',
+          component: require("@/components/SetUp/CountriesStatesZones/States/StateList").default,
+        },
       ]
     },
    

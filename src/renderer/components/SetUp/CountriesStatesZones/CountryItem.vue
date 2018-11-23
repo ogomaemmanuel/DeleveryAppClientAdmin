@@ -8,7 +8,7 @@
     <td>{{country.name}}</td>
     <td>{{country.code}}</td>
     <td>
-        <a href="">
+        <a @click.prevent="goToStateList()" href="">
 {{country.stateCount>0?"Edit States ("+country.stateCount+")":"Add States"}}
         </a>
 
@@ -22,6 +22,12 @@ export default {
     data() {
         return {
 
+        }
+    },
+      methods:{
+        goToStateList(){
+             this.$router.push("state-list");
+            // this.$router.push("user-create");
         }
     }
 }
