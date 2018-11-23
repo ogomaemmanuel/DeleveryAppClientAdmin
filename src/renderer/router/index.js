@@ -16,6 +16,7 @@ export default new Router({
       path: '/home',
       name: 'home-page',
       component: require('@/components/LandingPage/HomePage').default,
+      //Order routes
       children:[
         {
           path: '/order_list',
@@ -37,6 +38,7 @@ export default new Router({
           name: 'payment-transaction',
           component: require('@/components/Orders/PaymentTransaction/PaymentTransactionList').default
         },
+        //Catalog Routes
         {
           path: '/product-list',
           name: 'product-list',
@@ -62,6 +64,7 @@ export default new Router({
           name: 'product-tab-list',
           component: require("@/components/Products/ProductTabs/ProductTabList").default,
         },
+        //Users routes
         {
           path: '/user-list',
           name: 'user-list',
@@ -81,6 +84,12 @@ export default new Router({
           path: '/role_list',
           name: 'role_list',
           component: require("@/components/Users/Roles/RoleList").default,
+        },
+        //SetUp Routes
+        {
+          path: '/country_list',
+          name: 'country_list',
+          component: require("@/components/SetUp/CountriesStatesZones/CountryList").default,
         },
       ]
     },

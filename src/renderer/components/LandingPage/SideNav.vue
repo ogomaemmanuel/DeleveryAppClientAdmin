@@ -164,7 +164,7 @@ export default {
                         },
                         {
                             "text": "Countiries, States and Zones",
-                            "path": "/"
+                            "path": "/country_list"
                         },
                         {
                             "text": "Shipping",
