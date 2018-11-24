@@ -1,10 +1,10 @@
 <template>
 <tr>
-  
+
     <td>
         <input type="checkbox">
         <i class="fa fa-power-off"></i>
-        </td>
+    </td>
     <td>{{country.name}}</td>
     <td>{{country.code}}</td>
     <td>
@@ -24,9 +24,9 @@ export default {
 
         }
     },
-      methods:{
-        goToStateList(){
-             this.$router.push("state-list");
+    methods: {
+        goToStateList() {
+            this.$router.push("state-list");
             // this.$router.push("user-create");
         }
     }

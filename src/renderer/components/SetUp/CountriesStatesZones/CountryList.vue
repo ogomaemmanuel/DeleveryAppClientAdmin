@@ -1,8 +1,11 @@
 <template>
 <div class="country-list">
     <h2>Contries</h2>
+    <!-- TODO  Create Tab list for Countries and Zones onclicking Zones, zones list should appear-->
+    <a @click.prevent="goToZoneList" href="">Zones</a>
     <table>
         <thead>
+            
             <tr>
                 <th></th>
                 <th>Country</th>
@@ -52,6 +55,11 @@ export default {
                 }
             ]
 
+        }
+    },
+    methods:{
+        goToZoneList(){
+            this.$router.push("zone-list")
         }
     }
 }

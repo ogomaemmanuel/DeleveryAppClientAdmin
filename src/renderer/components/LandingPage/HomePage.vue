@@ -72,7 +72,7 @@ export default {
     .delivery-app-body {
         margin-left: 255px;
         transition: all 2s;
-        background-color: #f3f3f3;
+        background-color: #ffffff;
         min-height: 100%;
         transition-timing-function: ease-in-out;
 

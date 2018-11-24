@@ -64,7 +64,13 @@ export default new Router({
           name: 'product-tab-list',
           component: require("@/components/Products/ProductTabs/ProductTabList").default,
         },
-        //Users routes
+       //Discounts routes
+        {
+          path: '/coupons',
+          name: 'coupons',
+          component: require("@/components/Discounts/Coupons").default,
+        },
+         //Users routes
         {
           path: '/user-list',
           name: 'user-list',
@@ -95,6 +101,11 @@ export default new Router({
           path: '/state-list',
           name: 'state-list',
           component: require("@/components/SetUp/CountriesStatesZones/States/StateList").default,
+        },
+        {
+          path: '/zone-list',
+          name: 'zone-list',
+          component: require("@/components/SetUp/CountriesStatesZones/Zones/ZoneList").default,
         },
       ]
     },
