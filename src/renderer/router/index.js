@@ -66,9 +66,14 @@ export default new Router({
         },
        //Discounts routes
         {
-          path: '/coupons',
-          name: 'coupons',
+          path: '/coupon-create',
+          name: 'coupon-create',
           component: require("@/components/Discounts/Coupons").default,
+        },
+        {
+          path: '/coupon-list',
+          name: 'coupon-list',
+          component: require("@/components/Discounts/Coupons/CouponList").default,
         },
          //Users routes
         {

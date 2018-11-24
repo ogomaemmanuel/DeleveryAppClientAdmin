@@ -105,7 +105,7 @@ export default {
                         {
                             "text": "Coupons",
                             "icon": "el-icon-menu menu-icon",
-                            "path": "/coupons"
+                            "path": "/coupon-list"
                         }
                     ]
                 },
