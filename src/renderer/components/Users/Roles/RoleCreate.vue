@@ -1,6 +1,6 @@
 <template>
 <div class="role-create">
-    <b-btn :class="'btn btn-primary add-button'" @click="centerDialogVisible=true">Add Review</b-btn>
+    <b-btn :class="'btn btn-primary add-button'" @click="centerDialogVisible=true">Add Role</b-btn>
     <el-dialog title="Create Role" :visible.sync="centerDialogVisible" width="30%" center>
         <form action="">
             <div class="form-group ">

@@ -100,7 +100,7 @@ export default {
                     children: [{
                             "text": "Volume Discounts",
                             "icon": "el-icon-menu menu-icon",
-                            "path": "/"
+                            "path": "/volume-discount-list"
                         },
                         {
                             "text": "Coupons",

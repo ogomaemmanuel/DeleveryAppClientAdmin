@@ -75,6 +75,11 @@ export default new Router({
           name: 'coupon-list',
           component: require("@/components/Discounts/Coupons/CouponList").default,
         },
+        {
+          path: '/volume-discount-list',
+          name: 'volume-discount-list',
+          component: require("@/components/Discounts/VolumeDiscounts/VolumeDiscountList").default,
+        },
          //Users routes
         {
           path: '/user-list',
