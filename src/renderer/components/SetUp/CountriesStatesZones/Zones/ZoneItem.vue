@@ -1,22 +1,27 @@
 <template>
-<tr>
+  <tr>
     <td>
-        {{zone.name}}
+      {{ zone.name }}
     </td>
     <td>
-        <a @click.prevent href="">
-<i class="fa fa-trash"></i>
-        </a>
+      <a 
+        href="" 
+        @click.prevent>
+        <i class="fa fa-trash"/>
+      </a>
     </td>
-</tr>
+  </tr>
 </template>
 <script>
 export default {
-    props: ["zone"],
-    data() {
-        return {
-
-        }
+  props: {
+    zone: {
+      type: Object,
+      default: null
     }
-}
+  },
+  data() {
+    return {};
+  }
+};
 </script>

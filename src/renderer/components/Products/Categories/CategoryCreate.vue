@@ -1,29 +1,28 @@
 <template>
-<tr>
-    <td></td>
-    <td></td>
+  <tr>
+    <td/>
+    <td/>
     <td colspan="2">
-        <form action="">
-            <input placeholder="Enter Category Name" type="text">
-        </form>
+      <form action="">
+        <input 
+          placeholder="Enter Category Name" 
+          type="text">
+      </form>
     </td>
-    <td></td>
-    <td></td>
+    <td/>
+    <td/>
 
-    <slot name="delete-action-slot"></slot>
-</tr>
+    <slot name="delete-action-slot"/>
+  </tr>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-
-        }
-    }
-}
+  data() {
+    return {};
+  }
+};
 </script>
 
 <style>
-
 </style>

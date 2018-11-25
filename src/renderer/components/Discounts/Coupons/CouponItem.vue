@@ -1,36 +1,41 @@
 <template>
-<tr>
+  <tr>
     <td>
-        <i class="fa fa-power-off"></i>
+      <i class="fa fa-power-off"/>
     </td>
-    <td>{{coupon.code}}</td>
+    <td>{{ coupon.code }}</td>
     <td>
-        {{coupon.comment}}
-    </td>
-    <td>
-        {{coupon.discount}}
+      {{ coupon.comment }}
     </td>
     <td>
-        {{coupon.usesLeft}}
+      {{ coupon.discount }}
     </td>
     <td>
-        {{coupon.usesCount}}
+      {{ coupon.usesLeft }}
     </td>
     <td>
-        <a @click.prevent href="">
-            <i class="fa fa-trash"></i>
-        </a>
+      {{ coupon.usesCount }}
     </td>
-</tr>
+    <td>
+      <a 
+        href="" 
+        @click.prevent>
+        <i class="fa fa-trash"/>
+      </a>
+    </td>
+  </tr>
 </template>
 
 <script>
 export default {
-    props: ["coupon"],
-    data() {
-        return {
-
-        }
+  props: {
+    coupon: {
+      type: Object,
+      default: null
     }
-}
+  },
+  data() {
+    return {};
+  }
+};
 </script>

@@ -1,35 +1,42 @@
 <template>
-<tr>
-    <td>{{volumeDiscount.subTotal|subTotal}}</td>
+  <tr>
+    <td>{{ volumeDiscount.subTotal|subTotal }}</td>
     <td>
-        {{volumeDiscount.discountAmount|discountAmount("%")}}
+      {{ volumeDiscount.discountAmount|discountAmount("%") }}
     </td>
     <td>
-        {{volumeDiscount.membershipType}}
+      {{ volumeDiscount.membershipType }}
     </td>
     <td>
-     <a @click.prevent href=""><i class="fa fa-trash"></i></a>
-     <a @click.prevent href=""><i class="fa fa-edit"></i></a>
+      <a 
+        href="" 
+        @click.prevent><i class="fa fa-trash"/></a>
+      <a 
+        href="" 
+        @click.prevent><i class="fa fa-edit"/></a>
     </td>
-</tr>
+  </tr>
 </template>
 
 <script>
 export default {
-    props: ["volumeDiscount"],
-    data() {
-        return {
-
-        }
+  filters: {
+    subTotal: function(value) {
+      return `from $ ${value}`;
     },
-    filters: {
-        subTotal: function (value) {
-            return `from $ ${value}`;
-        },
-        discountAmount: function (value,type) {
-            type||"$"
-            return `${value} ${type}`;
-        }
+    discountAmount: function(value, type) {
+      type || "$";
+      return `${value} ${type}`;
     }
-}
+  },
+  props: {
+    volumeDiscount: {
+      type: Object,
+      default: null
+    }
+  },
+  data() {
+    return {};
+  }
+};
 </script>

@@ -1,22 +1,18 @@
 <template>
-<tr>
+  <tr>
+    <td/>
     <td>
-    </td>
-    <td>
-        <input type="checkbox">
+      <input type="checkbox">
     </td>
     <td>Tag Name</td>
     <td>20</td>
-    <td><i class="fa fa-trash"></i></td>
-</tr>
+    <td><i class="fa fa-trash"/></td>
+  </tr>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>

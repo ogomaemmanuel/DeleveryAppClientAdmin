@@ -1,29 +1,27 @@
 <template>
-<div id="app">
+  <div id="app">
     <router-view>
-        <side-menu slot="sidemenu">
-        </side-menu>
-        <top-nav-bar slot="top-nav-bar"></top-nav-bar>
+      <side-menu slot="sidemenu"/>
+      <top-nav-bar slot="top-nav-bar"/>
     </router-view>
-</div>
+  </div>
 </template>
 
 <script>
-import SideMenu from '../renderer/components/LandingPage/SideNav'
-import TopNavBar from '../renderer/components/LandingPage/TopNav'
+import SideMenu from "../renderer/components/LandingPage/SideNav";
+import TopNavBar from "../renderer/components/LandingPage/TopNav";
 export default {
-    name: 'delevery_app',
-    components: {
-        "side-menu": SideMenu,
-        'top-nav-bar': TopNavBar,
-    },
-
-}
+  name: "DeleveryApp",
+  components: {
+    "side-menu": SideMenu,
+    "top-nav-bar": TopNavBar
+  }
+};
 </script>
 
 <style lang="scss">
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 </style>

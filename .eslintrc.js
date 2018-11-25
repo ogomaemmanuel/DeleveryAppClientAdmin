@@ -1,7 +1,13 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  "extends": [
+    "plugin:vue/recommended",
+    "plugin:prettier/recommended",
+    "eslint:recommended"
+  ],
+  
   parserOptions: {
+    parser: 'babel-eslint',
     sourceType: 'module'
   },
   env: {
@@ -12,7 +18,7 @@ module.exports = {
     __static: true
   },
   plugins: [
-    'html'
+    'vue'
   ],
   'rules': {
     // allow debugger during development

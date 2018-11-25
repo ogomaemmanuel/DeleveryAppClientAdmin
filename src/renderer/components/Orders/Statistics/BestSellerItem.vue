@@ -1,16 +1,11 @@
 <template>
-<tr>
+  <tr>
     <td>position will Go Here</td>
     <td>Product Name Will Go Here</td>
-</tr> 
+  </tr> 
 </template>
 <script>
-export default {
-    
-}
+export default {};
 </script>
 <style lang="scss">
-
 </style>
-
-
