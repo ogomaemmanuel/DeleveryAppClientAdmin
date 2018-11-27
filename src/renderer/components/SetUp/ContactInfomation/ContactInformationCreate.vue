@@ -14,13 +14,15 @@
 
           </div>
 
-          <div class="contact-information-form-control-input">
+          <div class="contact-information-form-control-input has-icon">
 
             <input 
               class="form-control" 
               type="text">
-
+            
+            <i class="fa fa-info-circle"/>
           </div>
+         
         </div>
         <div class="contact-information-form-control">
 
@@ -192,11 +194,11 @@
           <div class="contact-information-form-control-label">
 
             <label>Site administrator e-mails</label>
-
+            <span class="text-danger">*</span>
           </div>
 
           <div class="contact-information-form-control-input">
-
+            
             <input 
               class="form-control" 
               type="text">
@@ -210,7 +212,7 @@
           <div class="contact-information-form-control-label">
 
             <label>Customer relations e-mails</label>
-
+            <span class="text-danger">*</span>
           </div>
 
           <div class="contact-information-form-control-input">
@@ -228,7 +230,7 @@
           <div class="contact-information-form-control-label">
 
             <label>Sales department e-mails</label>
-
+            <span class="text-danger">*</span>
           </div>
 
           <div class="contact-information-form-control-input">
@@ -246,6 +248,7 @@
           <div class="contact-information-form-control-label">
 
             <label>HelpDesk/Support service e-mails</label>
+            <span class="text-danger">*</span>
 
           </div>
 
@@ -276,7 +279,8 @@
         </div>
 
       </div>
-
+      <!--TODO create Three Tabs named Identity,Company address and Contacts -->
+      <!-- TODO Add Edit vue component for this compoment -->
     </form>
 
   </div>
@@ -302,36 +306,46 @@ export default {
 
       @media screen and (max-width: 878px) {
         flex-flow: column;
-
         align-items: flex-start;
       }
     }
 
     .contact-information-form-control-label {
       flex-basis: 25%;
-
+      display: flex;
+      align-items: center;
+      label {
+        flex: 1;
+      }
+      span {
+        margin-right: 16px;
+        margin-left: 16px;
+      }
       @media screen and (max-width: 878px) {
         flex: 1;
-
-        //  align-items: flex-start;
       }
     }
 
     .contact-information-form-control-input {
-      flex-basis: 300px;
-
+      flex-basis: 380px;
+      display: flex;
+      align-items: center;
+      align-content: space-between;
+      position: relative;
+      input {
+        min-width: 300px;
+      }
+      i {
+        color: #63b3d8;
+        position: absolute;
+        right: -20px;
+      }
       @media screen and (max-width: 878px) {
-        flex: 1;
-
-        min-width: 100%;
-
-        //  align-items: flex-start;
+        flex-basis: 100%;
       }
     }
-
     .contact-information-form-control-links {
       display: flex;
-
       flex-flow: column;
     }
   }
@@ -340,16 +354,6 @@ export default {
     @extend .company-identity;
 
     margin-top: 20px;
-  }
-
-  .company-address::before {
-    content: "";
-
-    height: 20px;
-
-    width: 100%;
-
-    background-color: yellow;
   }
 
   .company-contacts {

@@ -130,16 +130,16 @@ export default {
   content: "";
   flex: 1;
   height: 0;
-  border-style: solid;
-  border-width: thin;
+  border-bottom: solid;
+  border-bottom-width: thin;
 }
 .line-header::after {
   content: "";
   flex: 1;
   height: 0;
   width: 0;
-  border-style: solid;
-  border-width: thin;
+  border-bottom: solid;
+  border-bottom-width: thin;
 }
 .create-user {
   .submit-button-holder {

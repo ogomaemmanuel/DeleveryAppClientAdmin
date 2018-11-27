@@ -169,7 +169,7 @@ export default {
             },
             {
               text: "Payment Methods",
-              path: "/"
+              path: "/payment-methods-list"
             },
             {
               text: "Countiries, States and Zones",

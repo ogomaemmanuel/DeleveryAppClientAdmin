@@ -117,6 +117,12 @@ export default new Router({
             .default
         },
         {
+          path: "/payment-methods-list",
+          name: "payment-methods-list",
+          component: require("@/components/SetUp/PaymentMethods/PaymentMethods")
+            .default
+        },
+        {
           path: "/country_list",
           name: "country_list",
           component: require("@/components/SetUp/CountriesStatesZones/CountryList")

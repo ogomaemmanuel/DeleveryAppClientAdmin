@@ -1,7 +1,8 @@
 <template>
   <div 
-    v-click-outside="hideSelector" 
-    class="chip-container">
+    class="chip-container" 
+    tabindex="0"
+    @blur="hideSelector">
     <div 
       class="chip-input" 
       @click="showSector=true">
@@ -31,30 +32,6 @@ import Chip from "./Chip";
 export default {
   components: {
     chip: Chip
-  },
-
-  directives: {
-    "click-outside": {
-      bind: function(el, binding) {
-        // Define Handler and cache it on the element
-        const bubble = binding.modifiers.bubble;
-        const handler = e => {
-          if (bubble || (!el.contains(e.target) && el !== e.target)) {
-            binding.value(e);
-          }
-        };
-        el.__vueClickOutside__ = handler;
-
-        // add Event Listeners
-        document.addEventListener("click", handler);
-      },
-
-      unbind: function(el) {
-        // Remove Event Listeners
-        document.removeEventListener("click", el.__vueClickOutside__);
-        el.__vueClickOutside__ = null;
-      }
-    }
   },
   props: {
     selectList: {
