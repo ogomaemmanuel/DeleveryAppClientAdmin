@@ -1,13 +1,10 @@
 <template>
   <div class="chip">
-
     {{ chip.text }} <i 
       class="fa fa-times" 
       @click.prevent="removeChip"/>
-
   </div>
 </template>
-
 <script>
 export default {
   props: {

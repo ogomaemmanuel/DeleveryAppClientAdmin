@@ -15,6 +15,7 @@
         </transition>
       </div>
     </div>
+    <ChatFlyOut/>
   </div>
 </template>
 
@@ -22,10 +23,12 @@
 import { EventBus } from "../../event-bus.js";
 import ProductList from "../Products/ProductList";
 import ChipInput from "../common/ChipList";
+import ChatFlyOut from "../Chat/ChatFlyOut";
 export default {
   components: {
     "product-list": ProductList,
-    "chip-input": ChipInput
+    "chip-input": ChipInput,
+    ChatFlyOut
   },
   data() {
     return {
