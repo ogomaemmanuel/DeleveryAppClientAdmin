@@ -3,7 +3,7 @@
     <div class="user-details">
       <div class="chat-user-avatar">
         <img 
-          src="../../assets/profile.jpg" 
+          src="~@/assets/profile.jpg" 
           alt="profile"
           width="32px" 
           height="32px">

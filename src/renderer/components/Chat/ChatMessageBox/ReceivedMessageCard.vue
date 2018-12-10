@@ -5,7 +5,7 @@
     <img 
       height="32px" 
       width="32px" 
-      src="../../../assets/profile.jpg" 
+      src="~@/assets/profile.jpg" 
       alt="">
     <div class="received-message-body">
       ERTYUIKL:xkzncnzlkcnzlcnlzxnzlxzllxznlxnlzlxz 

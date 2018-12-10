@@ -3,7 +3,7 @@
     <div class="card">
       <img 
         class="profile-image" 
-        src="../../assets/profile.jpg" 
+        src="~@/assets/profile.jpg" 
         alt="John">
       <p class="name">Emmanuel Ogoma</p>
       <p class="title">CEO & Founder, Example</p>

@@ -32,7 +32,7 @@
           <template slot="button-content">
             <img 
               class="profile-image" 
-              src="../../assets/profile.jpg" 
+              src="~@/assets/profile.jpg" 
               alt="John">
           </template>
           <b-dropdown-item href="#">Profile</b-dropdown-item>

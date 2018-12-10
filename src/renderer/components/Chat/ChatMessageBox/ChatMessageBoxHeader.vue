@@ -1,34 +1,47 @@
 <template>
   <div class="chat-message-box-header">
     <div class="controls">
-      <div class="title">
+      <div 
+        class="title" 
+        @click="toggleBody">
         {{ onlineUser.userName }}
       </div>
       <div class="controls-icons">
         <i class="fa fa-video-camera"/>
         <i class="fa fa-phone"/>
         <i class="fa fa-cog"/>
-        <i class="fa fa-times"/>
+        <i 
+          class="fa fa-times"
+          @click="removeUserFromChatlist(onlineUser.id)" 
+        />
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   props: {
     onlineUser: {
       type: Object,
       default: null
+    },
+    showBody: {
+      type: Boolean,
+      default: true
+    }
+  },
+  methods: {
+    ...mapActions(["removeUserFromChatlist"]),
+    toggleBody() {
+      this.$emit("update:showBody", !this.showBody);
     }
   }
 };
 </script>
 <style lang="scss">
 .chat-message-box-header {
-  // background-color: #3578e5;
-  // width: 100%;
   background-color: #3578e5;
-  // position: absolute;
   margin-top: 0px;
   min-height: 40px;
   width: 100%;

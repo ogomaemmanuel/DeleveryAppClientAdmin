@@ -1,12 +1,18 @@
 <template>
   <div class="chat-message-box">
-    <ChatMessageBoxHeader :online-user="onlineUser.user"/>
-    <div class="messages">
-      <ReceivedMessage/>
-      <SentMessageCard/>
-      <ReceivedMessage/>
+    <ChatMessageBoxHeader 
+      :show-body.sync="showBody" 
+      :online-user="onlineUser.user"/>
+    <div 
+      v-if="showBody" 
+      class="chat-message-box-body">
+      <div class="messages">
+        <ReceivedMessage/>
+        <SentMessageCard/>
+        <ReceivedMessage/>
+      </div>
+      <MessageBoxFooter/>
     </div>
-    <MessageBoxFooter/>
   </div>
   
 </template>
@@ -28,6 +34,11 @@ export default {
       type: Object,
       default: null
     }
+  },
+  data() {
+    return {
+      showBody: true
+    };
   }
 };
 </script>
@@ -41,10 +52,12 @@ export default {
   padding-top: 0px;
   border-top-left-radius: 10px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
-  .messages {
-    width: 100%;
-    display: flex;
-    flex-flow: column;
+  .chat-message-box-body {
+    .messages {
+      width: 100%;
+      display: flex;
+      flex-flow: column;
+    }
   }
 }
 </style>
