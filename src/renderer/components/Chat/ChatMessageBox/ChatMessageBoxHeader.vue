@@ -1,50 +1,35 @@
 <template>
-  <div class="message-box-header">
+  <div class="chat-message-box-header">
     <div class="controls">
       <div class="title">
-        <h5>{{ OnlineUsersIndicator }}</h5>
+        {{ onlineUser.userName }}
       </div>
-      <div class="chat-icons">
-        <i 
-          class="fa fa-edit fa-2x" 
-          @click.self="openNewChat"/>
-        <i class="fa fa-user-plus fa-2x"/>
-        <i class="fa fa-cog fa-2x"/>
+      <div class="controls-icons">
+        <i class="fa fa-video-camera"/>
+        <i class="fa fa-phone"/>
+        <i class="fa fa-cog"/>
+        <i class="fa fa-times"/>
       </div>
-     
     </div>
   </div>
 </template>
-
 <script>
 export default {
   props: {
-    OnlineUserCount: {
-      type: Number,
+    onlineUser: {
+      type: Object,
       default: null
     }
-  },
-  data() {
-    return {};
-  },
-  computed: {
-    OnlineUsersIndicator() {
-      return this.OnlineUserCount > 0
-        ? `Chat (${this.OnlineUserCount})`
-        : `Chat`;
-    }
-  },
-
-  methods: {
-    openNewChat() {}
   }
 };
 </script>
-
 <style lang="scss">
-.message-box-header {
+.chat-message-box-header {
+  // background-color: #3578e5;
+  // width: 100%;
   background-color: #3578e5;
   // position: absolute;
+  margin-top: 0px;
   min-height: 40px;
   width: 100%;
   color: #ffffff;

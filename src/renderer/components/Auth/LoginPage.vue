@@ -1,20 +1,19 @@
 <template>
   <div class="login-form-controls">
     <div class="login">
-      <b-form-group
-        id="email"
-        label="Enter you email"
-        label-for="email"
-      >
-        <b-form-input
-          id="email"
-          v-model.trim="user.email"
+      <b-form-group 
+        id="email" 
+        label="Enter you email" 
+        label-for="email">
+        <b-form-input 
+          id="email" 
+          v-model.trim="user.userName" 
           type="email"/>
       </b-form-group>
 
-      <b-form-group
-        id="password"
-        label="Enter your password"
+      <b-form-group 
+        id="password" 
+        label="Enter your password" 
         label-for="password">
         <b-form-input 
           id="password" 
@@ -28,18 +27,21 @@
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
       user: {
-        email: "",
+        userName: "",
         password: ""
       }
     };
   },
   methods: {
+    ...mapActions(["login", "someAsyncTask"]),
     loginUser() {
-      this.$router.push({ name: "home-page" });
+      let vm = this;
+      this.login(vm.user);
     }
   }
 };

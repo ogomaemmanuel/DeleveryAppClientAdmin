@@ -15,7 +15,15 @@
         </transition>
       </div>
     </div>
-    <ChatFlyOut/>
+    <div class="chat-area">
+      <div class="chats">
+        <MessageBox 
+          v-for="(user,index ) in usersToChatWith" 
+          :key="index" 
+          :online-user="user"/>
+      </div>
+      <ChatFlyOut/>
+    </div>
   </div>
 </template>
 
@@ -24,18 +32,25 @@ import { EventBus } from "../../event-bus.js";
 import ProductList from "../Products/ProductList";
 import ChipInput from "../common/ChipList";
 import ChatFlyOut from "../Chat/ChatFlyOut";
+import MessageBox from "../Chat/ChatMessageBox/MessageBox";
+import { mapGetters } from "vuex";
 export default {
   components: {
     "product-list": ProductList,
     "chip-input": ChipInput,
-    ChatFlyOut
+    ChatFlyOut,
+    MessageBox
   },
   data() {
     return {
       homeWidth: {
         "margin-left": "255px"
-      }
+      },
+      user: {}
     };
+  },
+  computed: {
+    ...mapGetters(["usersToChatWith"])
   },
   created() {
     let vm = this;
@@ -63,6 +78,20 @@ export default {
       margin-top: 36px;
       margin-left: 28px;
       margin-right: 90px;
+    }
+  }
+  .chat-area {
+    display: flex;
+    position: fixed;
+    bottom: -3px;
+    right: 15px;
+    align-items: flex-end;
+    padding: 0%;
+    .chats {
+      min-height: 0px;
+      align-items: baseline;
+      margin-right: 10px;
+      display: flex;
     }
   }
 }

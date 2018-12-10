@@ -1,26 +1,29 @@
 <template>
   <div class="message-box">
-    <div class="message-box-head">
-      <ChatFlyOutHeader @click.native="toggleBody"/>
-    </div> 
+    <ChatFlyOutHeader 
+      :online-user-count="users.length" 
+      @click.native="toggleBody"/>
     <div 
-      :class="{'message-box-content':bodyHidden}"
-      class="message-box-body">
-      <ChatUserCard 
-        v-for="(user,index) in users" 
-        :user="user" 
-        :key="index"/>
-    </div>
-    <div
-      :class="{'message-box-content':bodyHidden}">
+      v-if="!bodyHidden" 
+      class="message-box-content">
+      <ChatUserCard
+        v-for="(user,index) in users"
+        :user="user"
+        :key="index"
+        class="online-user-list"
+        @click.native="addToChatUserList(user)"
+      />
       <ChatFlyOutSearchInput/>
     </div>
   </div>
 </template>
 <script>
+import * as apiUrl from "../../config/endPoint.js";
 import ChatFlyOutSearchInput from "./ChatFlyOutSearchInput";
 import ChatFlyOutHeader from "./ChatFlyOutHeader";
 import ChatUserCard from "./ChatUserCard";
+import * as SignalR from "@aspnet/signalr";
+import { mapGetters, mapActions } from "vuex";
 export default {
   components: {
     ChatFlyOutSearchInput,
@@ -29,34 +32,35 @@ export default {
   },
   data() {
     return {
+      connection: null,
       bodyHidden: true,
-      users: [
-        {
-          imageUrl: "TTT",
-          userName: "Emmanuel Ogoma",
-          isOnline: false
-        },
-        {
-          imageUrl: "TTT",
-          userName: "Emmanuel Ogoma",
-          isOnline: true
-        },
-        {
-          imageUrl: "TTT",
-          userName: "Emmanuel Ogoma",
-          isOnline: false
-        },
-        {
-          imageUrl: "TTT",
-          userName: "Emmanuel Ogoma",
-          isOnline: true
-        }
-      ]
+      users: []
     };
   },
+  computed: {
+    ...mapGetters(["auth"])
+  },
+  created() {
+    let vm = this;
+    vm.connection = new SignalR.HubConnectionBuilder()
+      .withUrl(`${apiUrl.APP_END_POINT}/signalr/notification-hub`)
+      .configureLogging(SignalR.LogLevel.Information)
+      .build();
+    vm.connection.start().then(() => {
+      vm.connection.invoke("RegisterUser", vm.auth.userDetails);
+    });
+
+    vm.connection.on("UpdatedUserList", function(users) {
+      vm.users = users;
+    });
+  },
   methods: {
+    ...mapActions(["addUserToChatlist"]),
     toggleBody() {
       this.bodyHidden = !this.bodyHidden;
+    },
+    addToChatUserList(user) {
+      this.addUserToChatlist(user);
     }
   }
 };
@@ -66,19 +70,18 @@ export default {
 .message-box {
   max-height: 400px;
   min-width: 400px;
+  position: relative;
   bottom: -3px;
-  right: 15px;
-  // border-style: solid;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
   background-color: #f3f3f3;
-  position: fixed;
   .message-box-head {
     position: relative;
   }
   .message-box-content {
-    display: none;
+    position: relative;
+    height: 100%;
   }
 }
 </style>
