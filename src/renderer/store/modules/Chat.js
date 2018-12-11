@@ -1,5 +1,8 @@
+import endPointConfig from "../../config/endPoint";
+import axios from "axios";
 const state = {
-  usersToChatWith: []
+  usersToChatWith: [],
+  messageSent: false
 };
 const mutations = {
   ADD_USER_TO_CHAT_LIST(state, newUser) {
@@ -11,6 +14,9 @@ const mutations = {
     state.usersToChatWith = state.usersToChatWith.filter(
       userToChatWith => userToChatWith.user.id !== userId
     );
+  },
+  SET_MESSAGE_HAS_BEEN_SENT(state, status) {
+    state.messageSent = status;
   }
 };
 const getters = {
@@ -23,6 +29,16 @@ const actions = {
   removeUserFromChatlist({ commit }, userId) {
     console.log("hrhrh");
     commit("REMOVE_USER_FROM_CHAT_LIST", userId);
+  },
+  sendChatMessage({ commit }, outGoingMessage) {
+    axios
+      .post(
+        `${endPointConfig.APP_END_POINT.API_HOST}/api/chat`,
+        outGoingMessage
+      )
+      .then(() => {
+        commit("SET_MESSAGE_HAS_BEEN_SENT");
+      });
   }
 };
 export default {

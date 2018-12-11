@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import * as apiUrl from "../../config/endPoint.js";
+import apiUrl from "../../config/endPoint";
 import ChatFlyOutSearchInput from "./ChatFlyOutSearchInput";
 import ChatFlyOutHeader from "./ChatFlyOutHeader";
 import ChatUserCard from "./ChatUserCard";
@@ -34,7 +34,8 @@ export default {
     return {
       connection: null,
       bodyHidden: true,
-      users: []
+      users: [],
+      messages: []
     };
   },
   computed: {
@@ -42,8 +43,11 @@ export default {
   },
   created() {
     let vm = this;
+    let tokenValue = `?token=${vm.auth.accessToken}`;
     vm.connection = new SignalR.HubConnectionBuilder()
-      .withUrl(`${apiUrl.APP_END_POINT}/signalr/notification-hub`)
+      .withUrl(
+        `${apiUrl.APP_END_POINT.API_HOST}/signalr/notification-hub${tokenValue}`
+      )
       .configureLogging(SignalR.LogLevel.Information)
       .build();
     vm.connection.start().then(() => {
@@ -52,6 +56,9 @@ export default {
 
     vm.connection.on("UpdatedUserList", function(users) {
       vm.users = users;
+    });
+    vm.connection.on("MessageToUser", function(incommingMessage) {
+      vm.messages.push(incommingMessage);
     });
   },
   methods: {

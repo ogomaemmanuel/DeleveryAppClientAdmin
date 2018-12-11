@@ -1,4 +1,4 @@
-import * as EndPoint from "../../config/endPoint";
+import EndPoint from "../../config/endPoint";
 import axios from "axios";
 import router from "../../router/index";
 const state = {
@@ -15,7 +15,10 @@ const getters = {
 const actions = {
   login(store, userCredetials) {
     axios
-      .post(`${EndPoint.APP_END_POINT}/api/account/login`, userCredetials)
+      .post(
+        `${EndPoint.APP_END_POINT.API_HOST}/api/account/login`,
+        userCredetials
+      )
       .then(({ data }) => {
         store.commit("SET_AUTH", data);
         router.push("/home");

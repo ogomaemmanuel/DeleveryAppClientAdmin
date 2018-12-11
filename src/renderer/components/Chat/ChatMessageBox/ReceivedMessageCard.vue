@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     alertSomething() {
-      window.alert("Hey There");
+      // window.alert("Hey There");
     }
   }
 };
