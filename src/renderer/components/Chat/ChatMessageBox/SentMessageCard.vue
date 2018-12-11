@@ -1,7 +1,7 @@
 <template>
   <div class="sent-message">
     <div class="sent-message-body">
-      ERTYUIKL:xkzncnzlkcnzlcnlzxnzlxzllxznlxnlzlxz 
+      {{ message.message }}
     </div>
    
   </div>

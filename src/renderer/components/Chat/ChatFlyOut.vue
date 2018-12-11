@@ -34,8 +34,7 @@ export default {
     return {
       connection: null,
       bodyHidden: true,
-      users: [],
-      messages: []
+      users: []
     };
   },
   computed: {
@@ -55,14 +54,14 @@ export default {
     });
 
     vm.connection.on("UpdatedUserList", function(users) {
-      vm.users = users;
+      vm.users = users.filter(user => user.user.id !== vm.auth.userDetails.id);
     });
     vm.connection.on("MessageToUser", function(incommingMessage) {
-      vm.messages.push(incommingMessage);
+      vm.addChatMessage(incommingMessage);
     });
   },
   methods: {
-    ...mapActions(["addUserToChatlist"]),
+    ...mapActions(["addUserToChatlist", "addChatMessage"]),
     toggleBody() {
       this.bodyHidden = !this.bodyHidden;
     },
@@ -72,7 +71,6 @@ export default {
   }
 };
 </script>
-
 <style lang="scss">
 .message-box {
   max-height: 400px;

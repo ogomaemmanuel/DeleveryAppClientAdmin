@@ -8,7 +8,7 @@
       src="~@/assets/profile.jpg" 
       alt="">
     <div class="received-message-body">
-      ERTYUIKL:xkzncnzlkcnzlcnlzxnzlxzllxznlxnlzlxz 
+      {{ message.message }}
     </div>
    
   </div>

@@ -7,11 +7,19 @@
       v-if="showBody" 
       class="chat-message-box-body">
       <div class="messages">
-        <ReceivedMessage/>
-        <SentMessageCard/>
-        <ReceivedMessage/>
+        <div 
+          v-for="filtedMessage in fiteredChatMessages" 
+          :key="filtedMessage.id">
+          <ReceivedMessage 
+            v-if="filtedMessage.toId==auth.userDetails.id" 
+            :message="filtedMessage"/>
+          <SentMessageCard 
+            v-if="filtedMessage.fromId==auth.userDetails.id" 
+            :message="filtedMessage"/>
+        </div>
       </div>
-      <MessageBoxFooter/>
+      <MessageBoxFooter
+        :online-user="onlineUser.user"/>
     </div>
   </div>
   
@@ -22,6 +30,7 @@ import ChatMessageBoxHeader from "./ChatMessageBoxHeader";
 import MessageBoxFooter from "./MessageBoxFooter";
 import ReceivedMessage from "./ReceivedMessageCard";
 import SentMessageCard from "./SentMessageCard";
+import { mapGetters } from "vuex";
 export default {
   components: {
     ChatMessageBoxHeader,
@@ -39,6 +48,26 @@ export default {
     return {
       showBody: true
     };
+  },
+  computed: {
+    ...mapGetters(["chatMessages", "auth"]),
+    fiteredChatMessages() {
+      let vm = this;
+      return this.chatMessages
+        .filter(message => {
+          return (
+            (message.toId == vm.onlineUser.user.id &&
+              message.fromId == vm.auth.userDetails.id) ||
+            (message.toId == vm.auth.userDetails.id &&
+              message.fromId == vm.onlineUser.user.id)
+          );
+        })
+        .sort(function(messageA, messageB) {
+          return messageA.updatedAt == messageB.updatedAt
+            ? 0
+            : +(messageA.updatedAt > messageB.updatedAt) || -1;
+        });
+    }
   }
 };
 </script>

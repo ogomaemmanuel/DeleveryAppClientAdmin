@@ -45,7 +45,9 @@ export default {
         from: vm.auth.userDetails,
         message: vm.message
       };
-      vm.sendChatMessage(outgoingMessage);
+      vm.sendChatMessage(outgoingMessage).then(() => {
+        vm.message = "";
+      });
     }
   }
 };
