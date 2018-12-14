@@ -5,7 +5,7 @@
         class="profile-image" 
         src="~@/assets/profile.jpg" 
         alt="John">
-      <p class="name">Emmanuel Ogoma</p>
+      <p class="name">{{ auth.userDetails.fullName }}</p>
       <p class="title">CEO & Founder, Example</p>
       <div class="notification-panel">
         <span><i class="el-icon-setting"/></span>
@@ -21,9 +21,13 @@
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {};
+  },
+  computed: {
+    ...mapGetters(["auth"])
   }
 };
 </script>

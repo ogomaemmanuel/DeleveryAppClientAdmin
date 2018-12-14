@@ -7,7 +7,10 @@ const state = {
 };
 const mutations = {
   ADD_USER_TO_CHAT_LIST(state, newUser) {
-    if (!state.usersToChatWith.find(user => user.id == newUser.id)) {
+    let isInChatList = state.usersToChatWith.find(
+      user => user.user.id == newUser.user.id
+    );
+    if (!isInChatList) {
       state.usersToChatWith.push(newUser);
     }
   },

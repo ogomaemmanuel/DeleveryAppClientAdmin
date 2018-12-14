@@ -18,7 +18,7 @@
     <div class="chat-area">
       <div class="chats">
         <MessageBox 
-          v-for="(user,index ) in usersToChatWith" 
+          v-for="(user, index ) in usersToChatWith" 
           :key="index" 
           :online-user="user"/>
       </div>

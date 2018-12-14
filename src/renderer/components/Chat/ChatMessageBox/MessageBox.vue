@@ -4,9 +4,11 @@
       :show-body.sync="showBody" 
       :online-user="onlineUser.user"/>
     <div 
-      v-if="showBody" 
+      v-show="showBody" 
       class="chat-message-box-body">
-      <div class="messages">
+      <div 
+        ref="messages" 
+        class="messages">
         <div 
           v-for="filtedMessage in fiteredChatMessages" 
           :key="filtedMessage.id">
@@ -68,6 +70,31 @@ export default {
             : +(messageA.updatedAt > messageB.updatedAt) || -1;
         });
     }
+  },
+  watch: {
+    fiteredChatMessages: function() {
+      let vm = this;
+      vm.$nextTick(function() {
+        vm.scrollMessagesToBottom();
+      });
+    },
+    showBody: function(newValue) {
+      let vm = this;
+      if (newValue === true) {
+        vm.$nextTick(function() {
+          vm.scrollMessagesToBottom();
+        });
+      }
+    }
+  },
+  mounted() {
+    this.scrollMessagesToBottom();
+  },
+  methods: {
+    scrollMessagesToBottom() {
+      this.$refs.messages.scrollTop =
+        this.$refs.messages.scrollHeight + this.$refs.messages.clientHeight;
+    }
   }
 };
 </script>
@@ -75,15 +102,19 @@ export default {
 .chat-message-box {
   background-color: #ffffff;
   min-width: 400px;
-  // max-height: 816px;
+  max-height: 600px;
   border-top-right-radius: 10px;
   position: relative;
   padding-top: 0px;
   border-top-left-radius: 10px;
+  margin-left: 5px;
+  align-self: flex-end;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
   .chat-message-box-body {
     .messages {
+      overflow-y: scroll;
       width: 100%;
+      height: 240px;
       display: flex;
       flex-flow: column;
     }

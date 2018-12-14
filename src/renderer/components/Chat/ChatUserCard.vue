@@ -1,5 +1,7 @@
 <template>
-  <div class="chat-user-card">
+  <div 
+    class="chat-user-card" 
+    @click="addToChatUserList(user)">
     <div class="user-details">
       <div class="chat-user-avatar">
         <img 
@@ -10,7 +12,7 @@
         {{ user.imageUrl }}
       </div>
       <div class="chat-user-name">
-        {{ user.user.userName }}
+        {{ user.user.fullName }}
       </div>
     </div>
     <span 
@@ -20,11 +22,18 @@
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   props: {
     user: {
       type: Object,
       default: null
+    }
+  },
+  methods: {
+    ...mapActions(["addUserToChatlist"]),
+    addToChatUserList(user) {
+      this.addUserToChatlist(user);
     }
   }
 };

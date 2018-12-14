@@ -11,7 +11,7 @@
         :user="user"
         :key="index"
         class="online-user-list"
-        @click.native="addToChatUserList(user)"
+       
       />
       <ChatFlyOutSearchInput/>
     </div>
@@ -61,7 +61,7 @@ export default {
     });
   },
   methods: {
-    ...mapActions(["addUserToChatlist", "addChatMessage"]),
+    ...mapActions(["addChatMessage"]),
     toggleBody() {
       this.bodyHidden = !this.bodyHidden;
     },

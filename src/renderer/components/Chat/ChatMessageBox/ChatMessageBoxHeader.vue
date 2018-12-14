@@ -4,7 +4,7 @@
       <div 
         class="title" 
         @click="toggleBody">
-        {{ onlineUser.userName }}
+        {{ onlineUser.fullName }}
       </div>
       <div class="controls-icons">
         <i class="fa fa-video-camera"/>
@@ -29,6 +29,7 @@ export default {
     showBody: {
       type: Boolean,
       default: true
+      //userImageUrl: __filename(__static)
     }
   },
   methods: {
